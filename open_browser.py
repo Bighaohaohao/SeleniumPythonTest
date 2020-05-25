@@ -13,8 +13,7 @@ def open_browser(browser):
             driver = webdriver.Ie()
         else:
             driver = webdriver.Edge()
-        #延时五秒关闭
-        time.sleep(10)
+
         return driver
     except:
         print("打开浏览器失败")
@@ -25,6 +24,7 @@ def get_url(url):
     if driver !=None:
         if 'http://' in url:
             driver.get(url)
+            time.sleep(10)
         else:
             print("你的URL未包含http")
     else:
