@@ -2,6 +2,8 @@
 from selenium import webdriver
 import json
 import time
+from selenium.webdriver.support import expected_conditions as EC
+
 
 #打开浏览器二次开发
 class SelenumDriver:
@@ -24,7 +26,6 @@ class SelenumDriver:
             return None
             
     def get_url(self,url):
-        # driver = open_browser('chrome')
         if self.driver !=None:
             self.driver.maximize_window()
             if 'http://' in url:
@@ -34,11 +35,10 @@ class SelenumDriver:
                 print("你的URL未包含http")
         else:
             print("case执行失败")
-        self.driver.quit()
+        # self.driver.quit()
 
     # 封装一个方法执行浏览器的最大化、最小化、刷新、前进、后退操作
     def handle_windows(self,*args):
-        # driver = open_browser('chrome')
         value = len(args)
         if value == 1:
             if args[0] == 'max':
@@ -56,10 +56,24 @@ class SelenumDriver:
         else:
             print("你传递的参数有问题")
         time.sleep(5)
-        self.driver.quit()
+        # self.driver.quit()
+    def assert_title(self,title_name=None):
+    #     '''
+    #     判断title是否正确
+    #     '''
+        if title_name !=None:
+            get_title = EC.title_contains(title_name) 
+            return get_title(self.driver)
+    def open_url_is_true(self,url,title_name=None):
+    #     '''
+    #     通过title判断页面是否正确
 
+    #     '''
+        self.get_url(url)
+        return self.assert_title(title_name)
+    def close_driver(self):
+        self.driver.close()
 selfnium_driver =SelenumDriver('chrome')
 selfnium_driver.handle_windows('max')
-# selfnium_driver.get_url ('http://translate.google.cn/')
-selfnium_driver.get_url ('http://tzwallet.ssssat.com/#/login')
-# handle_windows('200','300')
+selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
+selfnium_driver.close_driver()
