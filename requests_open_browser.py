@@ -1,3 +1,10 @@
+"""
+@author Maxhaohaohao
+@desc 本模块是一个学习文件
+@date 2020/06/03
+说明：
+"""
+
 #coding=utf-8
 import requests
 import json

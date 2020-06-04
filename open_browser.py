@@ -1,3 +1,10 @@
+"""
+@author Maxhaohaohao
+@desc 本模块是一个学习文件，使用python+selenium 打开浏览器等
+@date 2020/06/03
+说明：
+"""
+
 #coding = utf-8
 from selenium import webdriver
 import json
@@ -75,5 +82,6 @@ class SelenumDriver:
         self.driver.close()
 selfnium_driver =SelenumDriver('chrome')
 selfnium_driver.handle_windows('max')
-selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
+selfnium_driver.open_url_is_true(' http://www.imooc.com/article')
+# selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
 selfnium_driver.close_driver()

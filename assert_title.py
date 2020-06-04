@@ -1,3 +1,10 @@
+"""
+@author Maxhaohaohao
+@desc 本模块是一个学习文件，通过title判断当前打开页面是否正确
+@date 2020/06/03
+说明：
+"""
+
 #coding=utf-8
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
