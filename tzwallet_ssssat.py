@@ -11,7 +11,7 @@ import time
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class SelenumDriver:
+class Tzwallet:
     def __init__(self, browser):
         self.driver = self.open_browser(browser)
 
@@ -97,9 +97,9 @@ class SelenumDriver:
     def close_driver(self):
         self.driver.close()
 
-selfnium_driver = SelenumDriver('chrome')
-selfnium_driver.handle_windows('max')
-selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/?id=df54e695149945e688947dc49f8777ec')
-selfnium_driver.Login_test()
+tzwallet = Tzwallet('chrome')
+tzwallet.handle_windows('max')
+tzwallet.open_url_is_true('http://tzwallet.ssssat.com/?id=df54e695149945e688947dc49f8777ec')
+tzwallet.Login_test()
 time.sleep(10)
-selfnium_driver.close.driver()
+tzwallet.close.driver()
