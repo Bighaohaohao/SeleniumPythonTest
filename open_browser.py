@@ -5,19 +5,19 @@
 说明：
 """
 
-#coding = utf-8
+# coding = utf-8
 from selenium import webdriver
 import json
 import time
 from selenium.webdriver.support import expected_conditions as EC
 
 
-#打开浏览器二次开发
+# 打开浏览器二次开发
 class SelenumDriver:
-    def __init__(self,browser):
+    def __init__(self, browser):
         self.driver = self.open_browser(browser)
 
-    def open_browser(self,browser):
+    def open_browser(self, browser):
         try:
             if browser == 'chrome':
                 driver = webdriver.Chrome()
@@ -31,9 +31,9 @@ class SelenumDriver:
         except:
             print("打开浏览器失败")
             return None
-            
-    def get_url(self,url):
-        if self.driver !=None:
+
+    def get_url(self, url):
+        if self.driver != None:
             self.driver.maximize_window()
             if 'http://' in url:
                 self.driver.get(url)
@@ -45,7 +45,7 @@ class SelenumDriver:
         # self.driver.quit()
 
     # 封装一个方法执行浏览器的最大化、最小化、刷新、前进、后退操作
-    def handle_windows(self,*args):
+    def handle_windows(self, *args):
         value = len(args)
         if value == 1:
             if args[0] == 'max':
@@ -55,7 +55,7 @@ class SelenumDriver:
             elif args[0] == 'back':
                 self.driver.back()
             elif args[0] == 'go':
-               self. driver.forward()
+                self. driver.forward()
             else:
                 self.driver.refresh()
         elif value == 2:
@@ -64,14 +64,14 @@ class SelenumDriver:
             print("你传递的参数有问题")
         time.sleep(5)
         # self.driver.quit()
-    def assert_title(self,title_name=None):
+    def assert_title(self, title_name=None):
     #     '''
     #     判断title是否正确
     #     '''
-        if title_name !=None:
+        if title_name != None:
             get_title = EC.title_contains(title_name) 
             return get_title(self.driver)
-    def open_url_is_true(self,url,title_name=None):
+    def open_url_is_true(self, url, title_name=None):
     #     '''
     #     通过title判断页面是否正确
 
@@ -80,8 +80,8 @@ class SelenumDriver:
         return self.assert_title(title_name)
     def close_driver(self):
         self.driver.close()
-selfnium_driver =SelenumDriver('chrome')
+selfnium_driver = SelenumDriver('chrome')
 selfnium_driver.handle_windows('max')
-selfnium_driver.open_url_is_true(' http://www.imooc.com/article')
-# selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
+# selfnium_driver.open_url_is_true(' http://www.imooc.com/article')
+selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
 selfnium_driver.close_driver()
