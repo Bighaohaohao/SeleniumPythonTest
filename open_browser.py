@@ -83,5 +83,5 @@ class SelenumDriver:
 selfnium_driver = SelenumDriver('chrome')
 selfnium_driver.handle_windows('max')
 # selfnium_driver.open_url_is_true(' http://www.imooc.com/article')
-selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/#/login')
+selfnium_driver.open_url_is_true('http://tzwallet.ssssat.com/?id=df54e695149945e688947dc49f8777ec')
 selfnium_driver.close_driver()
